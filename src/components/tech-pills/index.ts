@@ -1,0 +1,1 @@
+export { TechPills } from "./TechPills";

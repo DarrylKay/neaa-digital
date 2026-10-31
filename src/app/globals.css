@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f3f4f6;
+  --ink: #111111;
+  --muted: #5c5c5c;
+  --border: #e5e7eb;
+  --accent: #1f5c4f;
+  --accent-hover: #174539;
+  --badge-bg: #fde8d8;
+  --badge-text: #9a4b1f;
+  --permanent-bg: #fef6d6;
+  --permanent-text: #8a6412;
+  --contract-bg: #dcc4f8;
+  --contract-text: #5a1f96;
+
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-text: var(--badge-text);
+  --color-permanent-bg: var(--permanent-bg);
+  --color-permanent-text: var(--permanent-text);
+  --color-contract-bg: var(--contract-bg);
+  --color-contract-text: var(--contract-text);
+  --font-sans: var(--font-nunito), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+}
+
+.bg-permanent-bg {
+  background-color: var(--permanent-bg);
+}
+
+.text-permanent-text {
+  color: var(--permanent-text);
+}
+
+.bg-contract-bg {
+  background-color: var(--contract-bg);
+}
+
+.text-contract-text {
+  color: var(--contract-text);
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 12mm;
+  }
+
+  html,
+  body {
+    background: white !important;
+    color: #111111;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .cv-document {
+    max-width: none !important;
+  }
+
+  .cv-role {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a[href^="mailto:"]::after {
+    content: none;
+  }
 }

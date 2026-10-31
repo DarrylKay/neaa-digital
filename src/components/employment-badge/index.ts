@@ -1,0 +1,1 @@
+export { EmploymentBadge } from "./EmploymentBadge";
